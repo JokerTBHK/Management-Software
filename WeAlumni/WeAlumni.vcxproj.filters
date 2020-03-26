@@ -36,10 +36,10 @@
     <ClCompile Include="StarterPage.cpp">
       <Filter>Source Files\Demo</Filter>
     </ClCompile>
-    <ClCompile Include="DataEncrptionInterface.cpp">
+    <ClCompile Include="Database.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
+    <ClCompile Include="DatabaseEncryptionAndDecryption.cpp">
       <Filter>Source Files\Database</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,10 +53,10 @@
     <ClInclude Include="DatabaseParam.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
-    <ClInclude Include="DataEncryptionInterface.h">
+    <ClInclude Include="Database.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
-    <ClInclude Include="Database.h">
+    <ClInclude Include="DatabaseEncryptionAndDecryption.h">
       <Filter>Header Files\Database</Filter>
     </ClInclude>
   </ItemGroup>
