@@ -40,6 +40,12 @@
     <Filter Include="Header Files\MainWindow">
       <UniqueIdentifier>{b91f38b9-5f87-4720-b933-d0e7c951ffb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\OPT">
+      <UniqueIdentifier>{b9fbf949-249c-4510-a927-222067c296c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OPT">
+      <UniqueIdentifier>{9bb0f1c6-e5f6-4357-b9e1-9c6b27eb03e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,6 +69,9 @@
     <ClCompile Include="MainWindow.cpp">
       <Filter>Source Files\MainWindow</Filter>
     </ClCompile>
+    <ClCompile Include="OPT.cpp">
+      <Filter>Source Files\OPT</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StarterPage.h">
@@ -85,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="MainWindow.h">
       <Filter>Header Files\MainWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="OPT.h">
+      <Filter>Header Files\OPT</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

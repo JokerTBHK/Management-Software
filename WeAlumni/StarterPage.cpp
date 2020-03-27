@@ -1,5 +1,6 @@
 #include "StarterPage.h"
 #include "MainWindow.h"
+
 /*
  * StarterPage.cpp
  *
