@@ -765,6 +765,8 @@ namespace WeAlumni {
 	private:
 		Database^ database;
 		int^ _id;
+		
+	private:
 		Void Initialize();
 		Void UpdateInfo();
 		Void SetLableVisible();
