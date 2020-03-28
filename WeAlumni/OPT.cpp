@@ -119,49 +119,82 @@ Void WeAlumni::OPT::UpdateInfo() {
                             "WHERE Member.Id = Staff.MemId AND " + 
                                   "Staff.MemId = OPT.StfId AND " + 
                                   "OPT.Id = " + _id + ";";
+    int status = -1;
+    //read data from OPT
     try
     {
-        int status = database->ReadData(command_OPT);
-        if (status > 0) {
-            lbl_OPTID->Text = database->dataReader[0]->ToString();
-            lbl_Status->Text = database->dataReader[1]->ToString();
-            txt_Status->Text = lbl_Status->Text;
-            lbl_MemId->Text = database->dataReader[2]->ToString();
-            txt_MemId->Text = lbl_MemId->Text;
-            lbl_StfId->Text = database->dataReader[3]->ToString();
-            txt_StfId->Text = lbl_StfId->Text;
-            lbl_StartDate->Text = database->dataReader[4]->ToString();
-            txt_StartDate->Text = lbl_StartDate->Text;
-            lbl_EndDate->Text = database->dataReader[5]->ToString();
-            txt_EndDate->Text = lbl_EndDate->Text;
-            lbl_Title->Text = database->dataReader[6]->ToString();
-            txt_Title->Text = lbl_Title->Text;
-            lbl_Position->Text = database->dataReader[7]->ToString();
-            txt_Position->Text = lbl_Position->Text;
-            lbl_CardNumber->Text = database->dataReader[8]->ToString();
-            txt_CardNumber->Text = lbl_CardNumber->Text;
-            lbl_CardStartDate->Text = database->dataReader[9]->ToString();
-            txt_CardStartDate->Text = lbl_CardStartDate->Text;
-            lbl_CardEndDate->Text = database->dataReader[10]->ToString();
-            txt_CardEndDate->Text = lbl_CardEndDate->Text;
-        }
-        
-        status = database->ReadData(command_Member);
-        if (status > 0) {
-            lbl_MemName->Text = database->dataReader[0]->ToString();
-            lbl_Gender->Text = database->dataReader[1]->ToString();
-            lbl_Email->Text = database->dataReader[2]->ToString();
-            lbl_Phone->Text = database->dataReader[3]->ToString();
-            lbl_WeChat->Text = database->dataReader[4]->ToString();
-        }
-        
-        status = database->ReadData(command_Staff);
-        if (status > 0) {
-            lbl_StfName->Text = database->dataReader[0]->ToString();
-        }
+        status = database->ReadData(command_OPT);
     }
     catch (Exception^ exception) {
         lbl_error->Text = exception->Message;
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    if (status == 1) {
+        lbl_OPTID->Text = database->dataReader[0]->ToString();
+        lbl_Status->Text = database->dataReader[1]->ToString();
+        txt_Status->Text = lbl_Status->Text;
+        lbl_MemId->Text = database->dataReader[2]->ToString();
+        txt_MemId->Text = lbl_MemId->Text;
+        lbl_StfId->Text = database->dataReader[3]->ToString();
+        txt_StfId->Text = lbl_StfId->Text;
+        lbl_StartDate->Text = database->dataReader[4]->ToString();
+        txt_StartDate->Text = lbl_StartDate->Text;
+        lbl_EndDate->Text = database->dataReader[5]->ToString();
+        txt_EndDate->Text = lbl_EndDate->Text;
+        lbl_Title->Text = database->dataReader[6]->ToString();
+        txt_Title->Text = lbl_Title->Text;
+        lbl_Position->Text = database->dataReader[7]->ToString();
+        txt_Position->Text = lbl_Position->Text;
+        lbl_CardNumber->Text = database->dataReader[8]->ToString();
+        txt_CardNumber->Text = lbl_CardNumber->Text;
+        lbl_CardStartDate->Text = database->dataReader[9]->ToString();
+        txt_CardStartDate->Text = lbl_CardStartDate->Text;
+        lbl_CardEndDate->Text = database->dataReader[10]->ToString();
+        txt_CardEndDate->Text = lbl_CardEndDate->Text;
+    }
+    else {
+        lbl_error->Text = "ERROR";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    //read data from Member
+    try 
+    {
+        status = database->ReadData(command_Member);
+    }
+    catch (Exception^ exception) {
+        lbl_error->Text = exception->Message;
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    if (status == 1) {
+        lbl_MemName->Text = database->dataReader[0]->ToString();
+        lbl_Gender->Text = database->dataReader[1]->ToString();
+        lbl_Email->Text = database->dataReader[2]->ToString();
+        lbl_Phone->Text = database->dataReader[3]->ToString();
+        lbl_WeChat->Text = database->dataReader[4]->ToString();
+    }
+    else {
+        lbl_error->Text = "ERROR";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    //read data from Staff
+    try 
+    {
+        status = database->ReadData(command_Staff);
+    }
+    catch (Exception^ exception) {
+        lbl_error->Text = exception->Message;
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    if (status == 1) {
+        lbl_StfName->Text = database->dataReader[0]->ToString();
+    }
+    else {
+        lbl_error->Text = "ERROR";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
@@ -213,7 +246,7 @@ Void WeAlumni::OPT::btn_ChangeConfirm_Click(System::Object^ sender, System::Even
         lbl_error->Visible = true;
     }
 
-    if(status != -1) {
+    if(status == 1) {
         lbl_error->Text = "Update Success";
         lbl_error->ForeColor = Color::Green;
         lbl_error->Visible = true;
@@ -223,6 +256,11 @@ Void WeAlumni::OPT::btn_ChangeConfirm_Click(System::Object^ sender, System::Even
         btn_DeleteAll->Visible = false;
         btn_ChangeConfirm->Visible = false;
         btn_ChangeCancel->Visible = false;
+    }
+    else {
+        lbl_error->Text = "ERROR";
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
     }
 }
 
@@ -263,14 +301,20 @@ Void WeAlumni::OPT::btn_DeleteAllButton_Click(System::Object^ sender, System::Ev
  */
 Void WeAlumni::OPT::btn_DeleteConfirm_Click(System::Object^ sender, System::EventArgs^ e) {
     String^ command = "DELETE FROM OPT WHERE Id = " + _id + ";";
+    int status = -1;
     try {
-        int status = database->DeleteData(command);
-        if (status > 0) {
-            this->Close();
-        }
+        status = database->DeleteData(command);
     }
     catch (Exception^ exception) {
         lbl_error->Text = exception->Message;
+        lbl_error->ForeColor = Color::Red;
+        lbl_error->Visible = true;
+    }
+    if (status == 1) {
+        this->Close();
+    }
+    else {
+        lbl_error->Text = "ERROR";
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
     }
