@@ -132,7 +132,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="NewPage.cpp" />
-    <ClCompile Include="OPT.cpp" />
+    <ClCompile Include="OPTInfoPage.cpp" />
     <ClCompile Include="StarterPage.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +148,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DatabaseParam.h" />
-    <ClInclude Include="OPT.h">
+    <ClInclude Include="OPTInfoPage.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StarterPage.h">

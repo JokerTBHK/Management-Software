@@ -1,7 +1,7 @@
-#include "OPT.h"
+#include "OPTInfoPage.h"
 
 /*
- * OPT.cpp
+ * OPTInfoPage.cpp
  *
  * This file will show all info of a certain ID, and contains functions of editing and deleting.
  *
