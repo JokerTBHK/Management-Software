@@ -129,6 +129,7 @@ Void WeAlumni::OPT::UpdateInfo() {
         lbl_error->Text = exception->Message;
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
+        return;
     }
     if (status == 1) {
         lbl_OPTID->Text = database->dataReader[0]->ToString();
@@ -167,6 +168,7 @@ Void WeAlumni::OPT::UpdateInfo() {
         lbl_error->Text = exception->Message;
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
+        return;
     }
     if (status == 1) {
         lbl_MemName->Text = database->dataReader[0]->ToString();
@@ -189,6 +191,7 @@ Void WeAlumni::OPT::UpdateInfo() {
         lbl_error->Text = exception->Message;
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
+        return;
     }
     if (status == 1) {
         lbl_StfName->Text = database->dataReader[0]->ToString();
@@ -244,6 +247,7 @@ Void WeAlumni::OPT::btn_ChangeConfirm_Click(System::Object^ sender, System::Even
         lbl_error->Text = exception->Message;
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
+        return;
     }
 
     if(status == 1) {
@@ -309,6 +313,7 @@ Void WeAlumni::OPT::btn_DeleteConfirm_Click(System::Object^ sender, System::Even
         lbl_error->Text = exception->Message;
         lbl_error->ForeColor = Color::Red;
         lbl_error->Visible = true;
+        return;
     }
     if (status == 1) {
         this->Close();

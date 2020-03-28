@@ -1,6 +1,15 @@
 #pragma once
 #include "Database.h"
 
+/*
+ * OPTInfoPage.h
+ *
+ * This file includes functions of editing and deleting on OPT data.
+ *
+ * @author: Xiangdong Che
+ * Revised: 3/28/20
+ *
+ */
 
 namespace WeAlumni {
 
@@ -23,9 +32,16 @@ namespace WeAlumni {
 			//
 			//TODO: Add the constructor code here
 			//
-			database = gcnew Database(Database::DatabaseType::Data);
 			_id = InputId;
-			Initialize();
+			try {
+				database = gcnew Database(Database::DatabaseType::Data);
+				Initialize();
+			}
+			catch(Exception^ exception){
+				lbl_error->Text = exception->Message;
+				lbl_error->ForeColor = Color::Red;
+				lbl_error->Visible = true;
+			}
 		}
 
 	protected:
@@ -43,9 +59,6 @@ namespace WeAlumni {
 			}
 		}
 	private: System::Windows::Forms::Label^ lbl_Prompt_OPTID;
-	protected:
-
-
 	private: System::Windows::Forms::Label^ lbl_Prompt_Status;
 	private: System::Windows::Forms::TextBox^ txt_Status;
 	private: System::Windows::Forms::Label^ lbl_Prompt_MemId;
@@ -97,10 +110,6 @@ namespace WeAlumni {
 	private: System::Windows::Forms::Label^ lbl_Position;
 	private: System::Windows::Forms::Label^ lbl_CardStartDate;
 	private: System::Windows::Forms::Label^ lbl_CardEndDate;
-
-
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -751,7 +760,6 @@ namespace WeAlumni {
 			this->Text = L"OPT Info Page";
 			this->ResumeLayout(false);
 			this->PerformLayout();
-
 		}
 #pragma endregion
 	private:
