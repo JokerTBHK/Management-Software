@@ -1,4 +1,4 @@
-#include "DatabasePrecheck.h"
+﻿#include "DatabasePrecheck.h"
 
 /*
  * DatabasePrecheck.cpp
@@ -9,6 +9,7 @@
  * Revised: 04/09/20
  *          04/11/20 add check treasury database.
  *	    04/12/20 Combine this file with Prompt file 
+ *	    05/02/20 Delete Database after finish 
  */
 
 using namespace System;
@@ -22,13 +23,13 @@ using namespace System;
 Void WeAlumni::DatabasePrecheck::Initialize() {
 	exitStatus = false;
 	if (_databaseType == DatabaseType::admin) {
-		lbl_Prompt->Text = "Import Or Create An admin.db";
+		lbl_Prompt->Text = "导入或新建 admin.db 文件";
 	}
 	else if (_databaseType == DatabaseType::treasury) {
-		lbl_Prompt->Text = "Import Or Create An treasury.db";
+		lbl_Prompt->Text = "导入或新建 treasury.db 文件";
 	}
 	else {
-		lbl_Prompt->Text = "Import Or Create An data.db";
+		lbl_Prompt->Text = "导入或新建 data.db 文件";
 	}
 }
 
@@ -118,8 +119,9 @@ bool WeAlumni::DatabasePrecheck::TrePrecheck() {
 		}
 		status = page->exitStatus;
 	}
-	return true;
 	page->~DatabasePrecheck();
+	return true;
+	
 }
 
 /*
@@ -177,6 +179,7 @@ Void WeAlumni::DatabasePrecheck::btn_New_Click(System::Object^ sender, System::E
 		_database->SetDatabaseType(Database::DatabaseType::Data);
 		_database->CreateDatabaseFile();
 	}
+	_database->~Database();
 	this->Close();
 }
 

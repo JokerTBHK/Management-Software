@@ -1,6 +1,7 @@
 #pragma once
 #include "database.h"
 #include "MainWindow.h"
+#include "StartPage2.h"
 #include "DatabasePrecheck.h"
 #include "SysForgotPassword.h"
 #include "PublicUserInfo.h"
@@ -15,7 +16,7 @@ namespace WeAlumni {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// LoginPage æ‘˜è¦
+	/// LoginPage ÕªÒª
 	/// </summary>
 	public ref class LoginPage : public System::Windows::Forms::Form
 	{
@@ -31,7 +32,7 @@ namespace WeAlumni {
 
 	protected:
 		/// <summary>
-		/// æ¸…ç†æ‰€æœ‰æ­£åœ¨ä½¿ç”¨çš„èµ„æºã€‚
+		/// ÇåÀíËùÓĞÕıÔÚÊ¹ÓÃµÄ×ÊÔ´¡£
 		/// </summary>
 		~LoginPage()
 		{
@@ -58,14 +59,14 @@ namespace WeAlumni {
 
 	private:
 		/// <summary>
-		/// å¿…éœ€çš„è®¾è®¡å™¨å˜é‡ã€‚
+		/// ±ØĞèµÄÉè¼ÆÆ÷±äÁ¿¡£
 		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// è®¾è®¡å™¨æ”¯æŒæ‰€éœ€çš„æ–¹æ³• - ä¸è¦ä¿®æ”¹
-		/// ä½¿ç”¨ä»£ç ç¼–è¾‘å™¨ä¿®æ”¹æ­¤æ–¹æ³•çš„å†…å®¹ã€‚
+		/// Éè¼ÆÆ÷Ö§³ÖËùĞèµÄ·½·¨ - ²»ÒªĞŞ¸Ä
+		/// Ê¹ÓÃ´úÂë±à¼­Æ÷ĞŞ¸Ä´Ë·½·¨µÄÄÚÈİ¡£
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -86,72 +87,72 @@ namespace WeAlumni {
 			this->lbl_Prompt_Title->AutoSize = true;
 			this->lbl_Prompt_Title->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Title->Location = System::Drawing::Point(277, 9);
+			this->lbl_Prompt_Title->Location = System::Drawing::Point(272, 37);
 			this->lbl_Prompt_Title->Name = L"lbl_Prompt_Title";
-			this->lbl_Prompt_Title->Size = System::Drawing::Size(146, 29);
+			this->lbl_Prompt_Title->Size = System::Drawing::Size(113, 29);
 			this->lbl_Prompt_Title->TabIndex = 0;
-			this->lbl_Prompt_Title->Text = L"Login Page";
+			this->lbl_Prompt_Title->Text = L"ÓÃ»§µÇÂ¼";
 			// 
 			// lbl_Prompt_Username
 			// 
 			this->lbl_Prompt_Username->AutoSize = true;
 			this->lbl_Prompt_Username->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Username->Location = System::Drawing::Point(113, 122);
+			this->lbl_Prompt_Username->Location = System::Drawing::Point(135, 123);
 			this->lbl_Prompt_Username->Name = L"lbl_Prompt_Username";
-			this->lbl_Prompt_Username->Size = System::Drawing::Size(117, 25);
+			this->lbl_Prompt_Username->Size = System::Drawing::Size(82, 25);
 			this->lbl_Prompt_Username->TabIndex = 1;
-			this->lbl_Prompt_Username->Text = L"Username:";
+			this->lbl_Prompt_Username->Text = L"ÓÃ»§Ãû:";
 			// 
 			// lbl_Prompt_Password
 			// 
 			this->lbl_Prompt_Password->AutoSize = true;
 			this->lbl_Prompt_Password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lbl_Prompt_Password->Location = System::Drawing::Point(113, 187);
+			this->lbl_Prompt_Password->Location = System::Drawing::Point(144, 189);
 			this->lbl_Prompt_Password->Name = L"lbl_Prompt_Password";
-			this->lbl_Prompt_Password->Size = System::Drawing::Size(113, 25);
+			this->lbl_Prompt_Password->Size = System::Drawing::Size(61, 25);
 			this->lbl_Prompt_Password->TabIndex = 2;
-			this->lbl_Prompt_Password->Text = L"Password:";
+			this->lbl_Prompt_Password->Text = L"ÃÜÂë:";
 			// 
 			// txt_Username
 			// 
-			this->txt_Username->Location = System::Drawing::Point(248, 126);
+			this->txt_Username->Location = System::Drawing::Point(238, 126);
 			this->txt_Username->Name = L"txt_Username";
 			this->txt_Username->Size = System::Drawing::Size(181, 22);
 			this->txt_Username->TabIndex = 3;
 			// 
 			// txt_Password
 			// 
-			this->txt_Password->Location = System::Drawing::Point(248, 189);
+			this->txt_Password->Location = System::Drawing::Point(238, 191);
 			this->txt_Password->Name = L"txt_Password";
 			this->txt_Password->Size = System::Drawing::Size(181, 22);
 			this->txt_Password->TabIndex = 4;
 			// 
 			// btn_Login
 			// 
-			this->btn_Login->Location = System::Drawing::Point(248, 281);
+			this->btn_Login->Location = System::Drawing::Point(238, 281);
 			this->btn_Login->Name = L"btn_Login";
-			this->btn_Login->Size = System::Drawing::Size(83, 45);
+			this->btn_Login->Size = System::Drawing::Size(95, 45);
 			this->btn_Login->TabIndex = 6;
-			this->btn_Login->Text = L"Login";
+			this->btn_Login->Text = L"µÇÂ¼";
 			this->btn_Login->UseVisualStyleBackColor = true;
 			this->btn_Login->Click += gcnew System::EventHandler(this, &LoginPage::Login_Click);
 			// 
 			// btn_forgotpswd
 			// 
-			this->btn_forgotpswd->Location = System::Drawing::Point(358, 281);
+			this->btn_forgotpswd->Location = System::Drawing::Point(357, 281);
 			this->btn_forgotpswd->Name = L"btn_forgotpswd";
-			this->btn_forgotpswd->Size = System::Drawing::Size(89, 45);
+			this->btn_forgotpswd->Size = System::Drawing::Size(95, 45);
 			this->btn_forgotpswd->TabIndex = 9;
-			this->btn_forgotpswd->Text = L"Forgot Password";
+			this->btn_forgotpswd->Text = L"Íü¼ÇÃÜÂë";
 			this->btn_forgotpswd->UseVisualStyleBackColor = true;
 			this->btn_forgotpswd->Click += gcnew System::EventHandler(this, &LoginPage::Forgot_Click);
 			// 
 			// lbl_DBError
 			// 
 			this->lbl_DBError->AutoSize = true;
-			this->lbl_DBError->Location = System::Drawing::Point(325, 239);
+			this->lbl_DBError->Location = System::Drawing::Point(308, 242);
 			this->lbl_DBError->Name = L"lbl_DBError";
 			this->lbl_DBError->Size = System::Drawing::Size(40, 17);
 			this->lbl_DBError->TabIndex = 10;
@@ -163,11 +164,10 @@ namespace WeAlumni {
 			this->cbox_Remember->AutoSize = true;
 			this->cbox_Remember->Location = System::Drawing::Point(452, 189);
 			this->cbox_Remember->Name = L"cbox_Remember";
-			this->cbox_Remember->Size = System::Drawing::Size(164, 21);
+			this->cbox_Remember->Size = System::Drawing::Size(86, 21);
 			this->cbox_Remember->TabIndex = 11;
-			this->cbox_Remember->Text = L"Remember Password";
+			this->cbox_Remember->Text = L"¼Ç×¡ÃÜÂë";
 			this->cbox_Remember->UseVisualStyleBackColor = true;
-			this->cbox_Remember->Checked = false;
 			// 
 			// LoginPage
 			// 
@@ -184,22 +184,25 @@ namespace WeAlumni {
 			this->Controls->Add(this->lbl_Prompt_Username);
 			this->Controls->Add(this->lbl_Prompt_Title);
 			this->Name = L"LoginPage";
-			this->Text = L"LoginPage";
+			this->Text = L"µÇÂ¼½çÃæ";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: 
+	public:
+		PublicUserInfo^ GetPublicUserInfo() { return pui; };
+	private:
 		Database^ _database;
 		int^ _stfId;
-	private:  
+		PublicUserInfo^ pui;
+	private:
 		System::Void Initialize();
 		Void WeAlumni::LoginPage::ShowDefault();
 		Void WeAlumni::LoginPage::JumpToMain();
 		Void WeAlumni::LoginPage::Check_Remember();
+		Void WeAlumni::LoginPage::Clear_User();
 		Void WeAlumni::LoginPage::Login_Click(System::Object^ sender, System::EventArgs^ e);
 		Void WeAlumni::LoginPage::Forgot_Click(System::Object^ sender, System::EventArgs^ e);
-};
+	};
 }
-

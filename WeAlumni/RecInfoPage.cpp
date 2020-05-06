@@ -7,10 +7,35 @@
  *
  * @author: Sen Ma
  * Revised: 3/28/20
- *
+ * Revised: 4/25/20 chinese
+ * Revised: 5/1/20 auth update
  */
 
 using namespace System;
+
+/*
+* Initialize
+* This method will try to initialize database.
+* @param none
+* @return none
+*/
+Void WeAlumni::RecInfoPage::Initialize() {
+    try {
+        if (auth == PublicUserInfo::Auth::Level_5) {
+            btn_Update->Enabled = true;
+            database = gcnew Database(Database::DatabaseType::Data, true);
+        }
+        else {
+            btn_Update->Enabled = false;
+            database = gcnew Database(Database::DatabaseType::Data);
+        }
+        UpdateInfo();
+    }
+    catch (System::Exception^ exception) {
+        lbl_DBError->Text = exception->Message;
+        lbl_DBError->ForeColor = System::Drawing::Color::Red;
+    }
+}
 
 /*
  * UpdateInfo
@@ -37,7 +62,7 @@ Void WeAlumni::RecInfoPage::UpdateInfo() {
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Record Id Found";
+        lbl_DBError->Text = "找不到记录";
     }
     else {
         lbl_RcdId->Text = database->dataReader[4]->ToString();
@@ -78,7 +103,7 @@ Void WeAlumni::RecInfoPage::btn_Confirm_Click(System::Object^ sender, System::Ev
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No Update";
+        lbl_DBError->Text = "无更改";
     }
     UpdateInfo();
 }
@@ -106,11 +131,11 @@ Void WeAlumni::RecInfoPage::btn_DelConfirm_Click(System::Object^ sender, System:
 
     if (status == -1) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "Error -1";
+        lbl_DBError->Text = "无法删除不存在的记录";
     }
     else if (status == 0) {
         lbl_DBError->Visible = true;
-        lbl_DBError->Text = "No such Id";
+        lbl_DBError->Text = "无法删除不存在的记录";
     }
     else {
         this->Close();
